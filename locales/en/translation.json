@@ -6,5 +6,8 @@
     "switch_to_spanish": "Switch to Spanish",
     "light_mode": "Light Mode",
     "dark_mode": "Dark Mode",
-    "home": "Home"
+    "home": "Home",
+    "like": "Like",
+    "dislike": "Dislike",
+    "friends_counter": "Friends Counter"
   }

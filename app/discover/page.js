@@ -1,10 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Discover() {
   const [dogImage, setDogImage] = useState('');
   const [friendsCounter, setFriendsCounter] = useState(0); // State to track 'likes' from dogs
   const [notification, setNotification] = useState(''); // State to handle the match notification
+
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language);
+
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'es' : 'en';
+    setLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+  };
 
   useEffect(() => {
     fetchRandomDog(); // Fetch random dog image on mount
@@ -22,7 +32,7 @@ function Discover() {
     if (Math.random() < 0.2) {
       // 20% chance to increment the friends counter
       setFriendsCounter((prev) => prev + 1); // Update friends counter
-      setNotification('You made a new friend!'); // Show notification
+      setNotification('WOOF! You made a new friend!'); // Show notification
 
       // Clear the notification after 3 seconds and then fetch a new dog image
       setTimeout(() => {
@@ -44,7 +54,7 @@ function Discover() {
       <img src={dogImage} alt='Random Dog' className='w-full h-96 rounded-md mb-4' />
       <div className='flex justify-between'>
         <button onClick={handleDislike} className='w-full p-3 mr-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300'>
-          Dislike
+          {t('Dislike')}
         </button>
         <button onClick={handleLike} className='w-full p-3 ml-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300'>
           Like

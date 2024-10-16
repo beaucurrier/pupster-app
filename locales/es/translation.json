@@ -6,5 +6,8 @@
     "switch_to_spanish": "Cambiar a español",
     "light_mode": "Modo claro",
     "dark_mode": "Modo oscuro",
-    "home": "Casa"
+    "home": "Casa",
+    "like": "Como",
+    "dislike": "Aversión",
+    "friends_counter": "Contador de amigos"
   }
